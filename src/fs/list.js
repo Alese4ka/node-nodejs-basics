@@ -18,8 +18,7 @@ const list = async () => {
                 }
                 console.log(fileArr);
             } else {
-                const error = new Error('FS operation failed');
-                console.error(error);
+                throw new Error('FS operation failed');
             }
         }); 
       } catch (err) {

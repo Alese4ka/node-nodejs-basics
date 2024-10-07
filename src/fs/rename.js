@@ -14,8 +14,7 @@ const rename = async () => {
             if (e) {
                 exists(newNameFilePath, async (e) => {
                     if (e) {
-                        const error = new Error('FS operation failed');
-                        console.error(error);
+                        throw new Error('FS operation failed');
                     } else {
                         fs.rename(wrongNameFilePath, newNameFilePath, (err) => {
                             if (err) {
@@ -25,8 +24,7 @@ const rename = async () => {
                     }
                 }); 
             } else {
-                const error = new Error('FS operation failed');
-                console.error(error);
+                throw new Error('FS operation failed');
             }
         }); 
       } catch (err) {

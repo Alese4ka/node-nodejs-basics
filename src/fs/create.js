@@ -13,8 +13,7 @@ const create = async () => {
 
         exists(dirPath, async (e) => {
             if (e) {
-                const error = new Error('FS operation failed');
-                console.error(error);
+                throw new Error('FS operation failed');
             } else {
                 await fs.writeFile(dirPath, content);
             }

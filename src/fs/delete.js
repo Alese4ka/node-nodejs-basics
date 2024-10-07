@@ -13,8 +13,7 @@ const remove = async () => {
             if (e) {
                 fs.rm(dirPath);
             } else {
-                const error = new Error('FS operation failed');
-                console.error(error);
+                throw new Error('FS operation failed');
             }
         }); 
       } catch (err) {
