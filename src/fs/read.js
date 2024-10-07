@@ -10,10 +10,9 @@ const dirPath = path.join(__dirname, './files/fileToRead.txt');
 const read = async () => {
     try {
         exists(dirPath, async (e) => {
-            console.log('dfkjhdfgkj')
             if (e) {
-                const files = await fs.readFile(dirPath, 'utf8');
-                console.log(files);
+                const file = await fs.readFile(dirPath, 'utf8');
+                console.log(file);
             } else {
                 const error = new Error('FS operation failed');
                 console.error(error);
