@@ -1,5 +1,26 @@
+import fs from 'node:fs/promises';
+import { exists } from 'node:fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename); 
+const dirPath = path.join(__dirname, './files/fresh.txt'); 
+
 const create = async () => {
-    // Write your code here 
+    try {
+        const content = 'I am fresh and young';
+
+        exists(dirPath, async (e) => {
+            if (e) {
+                throw new Error('FS operation failed');
+            } else {
+                await fs.writeFile(dirPath, content);
+            }
+        }); 
+      } catch (err) {
+        console.error(err);
+      }
 };
 
 await create();
